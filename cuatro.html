@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Tacos wako</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styless.css" rel="stylesheet" />
+    </head>
+    <body>
+       <main class="flex-shrink-0">
+            <!-- Navigation-->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <img  src=https://i.pinimg.com/736x/6a/42/0b/6a420bf5fa473cb4b7203695a3c21e4a.jpg whidht="50px"height="50px"alt="..." />
+               <a class="navbar-brand" href="index.html">Taqueria Wako</a>
+                <div class="container px-5">                
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item"><a class="nav-link" href="C:\Users\Toshiba\OneDrive\Desktop\Tacos\Tacos\index.html ">Inicio</a></li>
+                            <li class="nav-item"><a class="nav-link" href="C:\Users\Toshiba\OneDrive\Desktop\Tacos\Tacos\Menu.html">Menu</a></li>
+                            <li class="nav-item"><a class="nav-link" href="C:\Users\Toshiba\OneDrive\Desktop\Tacos\Tacos\Ubicacion.html">Ubicacion</a></li>
+                            <li class="nav-item"><a class="nav-link" href="C:\Users\Toshiba\OneDrive\Desktop\Tacos\Tacos\Contacto.html">Contacto</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav> <section class="py-5">
+               <header class="bg-  py-5">
+            <section class="py-5 bg-light" id="scroll-target">
+                <div class="container px-5 my-5">
+                    <div class="row gx-5 align-items-center">
+                        <div class="col-lg-6"><img  src="https://i.pinimg.com/736x/6a/42/0b/6a420bf5fa473cb4b7203695a3c21e4a.jpg"whidht="300px"height="200px" alt="..." /></div>
+                        <div class="col-lg-6">
+                            <h3 class="fw-bolder">Taqueria Wako</h3>
+                            <p class="lead fw-normal text-muted mb-0">La historia de nuestras tortillas comienza con una pasion compartida por la autentica comida mexicana.Se tuvo la vision de crear un lugar donde la tradicion y el sabor se unieran en cada taco,con raices profundas en la cultura y un compromiso con la calidad ,nuestra taqueria nacio para satisfacer el anhelo de autentica comida mexicana en el corazon de cdmx.
+                            Desde entonces nos emos dedicado a selecccionar los mejores ingredientes ,a perfeccionar nuestras recetas y a brindar un servicio calido y acogedor a cad uno de nuestros clientes.Nuestro objetivo es transportar a quienes nos visitan a los sabores y tradiciones de meico ,creando momentos inolvidables alrededor de la mesa.</p>
+                </div>
+            </div>
+        </header>
+        <div id="contador-fixed">
+    👁️ Visitas: <span id="contador">...</span>
+  </div>
+
+  <script>
+    // 🔧 Configuración Firebase (reemplaza con la tuya)
+    const firebaseConfig = {
+      apiKey: "TU_API_KEY",
+      authDomain: "TU_DOMINIO.firebaseapp.com",
+      projectId: "TU_PROJECT_ID",
+      databaseURL: "https://TU_PROJECT_ID.firebaseio.com",
+      storageBucket: "TU_PROJECT_ID.appspot.com",
+      messagingSenderId: "XXXXXXXXX",
+      appId: "APP_ID"
+    };
+
+    // Inicializar Firebase
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    const ref = db.ref("contadorVisitas");
+
+    // Aumentar el contador cada vez que alguien entra
+    ref.transaction((valorActual) => {
+      return (valorActual || 0) + 1;
+    });
+
+    // Mostrar el contador en tiempo real
+    ref.on("value", (snapshot) => {
+      document.getElementById("contador").textContent = snapshot.val();
+    });
+  </script>
+
+
+  <script>
+    window.onload = function () {
+      // Obtener el número de visitas del localStorage
+      let visitas = localStorage.getItem("contadorVisitas");
+
+      // Si no existe, lo inicializamos en 1
+      if (!visitas) {
+        visitas = 1;
+      } else {
+        visitas = parseInt(visitas) + 1;
+      }
+
+      // Guardar el nuevo valor
+      localStorage.setItem("contadorVisitas", visitas);
+
+      // Mostrar el valor en la página
+      document.getElementById("contador").textContent = visitas;
+    };
+  </script>
+</head>   
+        <!-- Footer-->
+        <footer class="bg-dark py-4 mt-auto">
+            <div class="container px-5">
+                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
+                    <div class="col-auto"><div class="small m-0 text-white">Taqueria &wako; Tu comida favorita</div></div>
+                    <div class="col-auto">
+                        <a class="link-light small" href="#!">Privacy</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Terms</a>
+                        <span class="text-white mx-1">&middot;</span>
+                        <a class="link-light small" href="#!">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+                                                                                                                   </body>
+            </html>
